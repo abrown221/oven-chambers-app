@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Oven Chambers App</title>
+  <style>
+    /* Body as a flex container, centered, with light gray background */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      box-sizing: border-box;
+      font-family: sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body {
+      flex-direction: column; /* So the heading is on top, then the grid */
+    }
+
+    /* Main heading styles (centered, large font) */
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      margin: 20px 0;
+    }
+
+    /* Container for all ovens (3 columns by 2 rows) */
+    .mainContainer {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      grid-template-rows: repeat(2, auto);
+      gap: 30px; /* 30px gap horizontally and vertically */
+      margin-bottom: 30px; /* Some bottom space */
+    }
+
+    /* Each oven group */
+    .ovenGroup {
+      width: 300px;
+      border: 4px solid #000;
+      background-color: #fff;
+      padding: 10px;
+    }
+
+    .ovenGroup h2 {
+      margin: 0 0 10px 0; /* Some space below the oven title */
+      font-size: 1.2em;
+    }
+
+    /* Chambers container inside each oven (4 vertical chambers) */
+    .groupGrid {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Each chamber is a .square with specific styling */
+    .square {
+      height: 175px;
+      width: 100%;
+      border: 2px solid #333;
+      border-radius: 6px;
+      background-color: green;
+      color: magenta;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      margin-bottom: 0; /* Default no bottom margin */
+    }
+
+    /* Add 20px vertical gap ONLY under the 2nd chamber in each group */
+    .square:nth-child(2) {
+      margin-bottom: 20px;
+    }
+
+    /* Timer, chamber-number, and status lines */
+    .timer {
+      font-size: 1.5em;
+      margin: 2px 0;
+    }
+    .chamber-number {
+      font-weight: bold;
+      margin: 2px 0;
+    }
+    .status-message {
+      font-size: 0.9em;
+      margin: 2px 0;
+      text-align: center;
+      padding: 0 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>OVEN KING AT ANDY'S</h1>
+
+  <!-- Main container for the 6 ovens -->
+  <div class="mainContainer">
+    <!-- Oven 1 -->
+    <div class="ovenGroup">
+      <h2>Oven 1</h2>
+      <div class="groupGrid">
+        <!-- Chambers #1..4 -->
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #1</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #2</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #3</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #4</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Oven 2 -->
+    <div class="ovenGroup">
+      <h2>Oven 2</h2>
+      <div class="groupGrid">
+        <!-- Chambers #5..8 -->
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #5</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #6</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #7</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #8</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Oven 3 -->
+    <div class="ovenGroup">
+      <h2>Oven 3</h2>
+      <div class="groupGrid">
+        <!-- Chambers #9..12 -->
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #9</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #10</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #11</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #12</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Oven 4 -->
+    <div class="ovenGroup">
+      <h2>Oven 4</h2>
+      <div class="groupGrid">
+        <!-- Chambers #13..16 -->
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #13</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #14</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #15</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #16</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Oven 5 -->
+    <div class="ovenGroup">
+      <h2>Oven 5</h2>
+      <div class="groupGrid">
+        <!-- Chambers #17..20 -->
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #17</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #18</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #19</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #20</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Oven 6 -->
+    <div class="ovenGroup">
+      <h2>Oven 6</h2>
+      <div class="groupGrid">
+        <!-- Chambers #21..24 -->
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #21</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #22</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #23</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+        <div class="square">
+          <div class="timer">00:00</div>
+          <div class="chamber-number">Chamber #24</div>
+          <div class="status-message">Green - ready for pizza!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Stages definition (0..5) with corresponding styling and messages
+    // stage 0 -> Green, 1 -> Blue1, 2 -> Yellow, 3 -> Blue2, 4 -> Red, 5 -> Blue3
+    const STAGE_DEFS = [
+      {
+        bg: 'green',
+        color: 'magenta',
+        message: 'Green - ready for pizza!'
+      },
+      {
+        bg: 'blue',
+        color: 'yellow',
+        message: 'Blue 1 - Pizza Cooking'
+      },
+      {
+        bg: 'yellow',
+        color: 'blue',
+        message: 'Yellow - Spin me and check the bottom!'
+      },
+      {
+        bg: 'blue',
+        color: 'yellow',
+        message: 'Blue 2 - Pizza Cooking'
+      },
+      {
+        bg: 'red',
+        color: 'cyan',
+        message: 'Red - PIZZA READY OR ALMOST READY! CHECK ME!'
+      },
+      {
+        bg: 'blue',
+        color: 'yellow',
+        message: 'Blue 3 - Oven reheating'
+      }
+    ];
+
+    // We have 24 chambers, each with a stage (0..5) and a startTime (ms)
+    // startTime is the moment (Date.now()) when we moved from stage 0 to stage 1.
+    // If stage == 0, timer is 00:00, startTime is 0.
+    const NUM_CHAMBERS = 24;
+    const chambersData = [];
+    for (let i = 0; i < NUM_CHAMBERS; i++) {
+      chambersData.push({
+        stage: 0,
+        startTime: 0
+      });
+    }
+
+    // Grab all .square elements in order (should be 24 of them)
+    const squares = document.querySelectorAll('.square');
+
+    // Attach click handlers to each chamber
+    squares.forEach((square, index) => {
+      square.addEventListener('click', () => handleChamberClick(index));
+    });
+
+    function handleChamberClick(index) {
+      let chamber = chambersData[index];
+      // Move to next stage
+      chamber.stage = (chamber.stage + 1) % 6;
+
+      // If we moved from stage 0 -> 1, set the startTime
+      // If we moved to stage 0, reset startTime
+      if (chamber.stage === 1) {
+        chamber.startTime = Date.now();
+      } else if (chamber.stage === 0) {
+        chamber.startTime = 0;
+      }
+
+      // Immediately update the chamber UI (color, status, etc.)
+      updateChamberUI(index);
+    }
+
+    function updateChamberUI(index) {
+      const square = squares[index];
+      const timerDiv = square.querySelector('.timer');
+      const statusDiv = square.querySelector('.status-message');
+
+      const chamber = chambersData[index];
+      const stageInfo = STAGE_DEFS[chamber.stage];
+
+      // Update background and text color
+      square.style.backgroundColor = stageInfo.bg;
+      square.style.color = stageInfo.color;
+
+      // Update the status message
+      statusDiv.textContent = stageInfo.message;
+
+      // Update the timer text
+      if (chamber.stage === 0) {
+        // Inactive
+        timerDiv.textContent = '00:00';
+      } else {
+        // Calculate elapsed time since stage 1 was started
+        const now = Date.now();
+        const elapsedSec = Math.floor((now - chamber.startTime) / 1000);
+        timerDiv.textContent = formatTime(elapsedSec);
+      }
+    }
+
+    // Format seconds as MM:SS
+    function formatTime(totalSeconds) {
+      const mm = Math.floor(totalSeconds / 60);
+      const ss = totalSeconds % 60;
+      return (
+        String(mm).padStart(2, '0') + ':' +
+        String(ss).padStart(2, '0')
+      );
+    }
+
+    // Update loop, runs every second
+    function updateLoop() {
+      const now = Date.now();
+
+      for (let i = 0; i < NUM_CHAMBERS; i++) {
+        let chamber = chambersData[i];
+        if (chamber.stage > 0) {
+          // Compute elapsed time in seconds
+          const elapsedSec = Math.floor((now - chamber.startTime) / 1000);
+
+          // Automatic transitions:
+          // 1) If stage=1 and elapsed >= 180s => stage=2
+          if (chamber.stage === 1 && elapsedSec >= 180) {
+            chamber.stage = 2;
+          }
+
+          // 2) If stage=2 or 3 and elapsed >= 360s => stage=4
+          //    (Need to check both stage=2 or stage=3)
+          if ((chamber.stage === 2 || chamber.stage === 3) && elapsedSec >= 360) {
+            chamber.stage = 4;
+          }
+
+          // 3) If stage>0 and elapsed >= 600s => reset to stage=0
+          if (chamber.stage > 0 && elapsedSec >= 600) {
+            chamber.stage = 0;
+            chamber.startTime = 0;
+          }
+
+          // Update UI after possible stage changes
+          updateChamberUI(i);
+        }
+      }
+    }
+
+    // Call updateLoop every 1 second
+    setInterval(updateLoop, 1000);
+  </script>
+</body>
+</html>
